@@ -24,9 +24,8 @@ class Product extends React.Component{
   render() {
     return (
       <div>
-        <h2>Product</h2>
         <h3>
-        {this.props.name} ${this.props.price} |  {this.state.number}
+        {this.props.name} ${this.props.price} | Quantity: {this.state.number}
          <button onClick={ this.handleIncrement}> + </button>
          <button onClick={ this.handleDecrement}> - </button>
         </h3>

@@ -25,6 +25,19 @@ const data = [
   }
 ]
 
+const orderlist = [
+  {
+    name: 'looong black',
+    price: 5,
+    number: 2
+  },
+  {
+    name: 'Heart shaped box',
+    price: 20,
+    number: 1
+  }
+]
+
 class App extends Component {
   render() {
     return (
@@ -34,6 +47,8 @@ class App extends Component {
           <h2>Welcome to LOOONG and Strong</h2>
         </div>
         <ProductMenu items={ data } />
+        <Order items={ orderlist } />
+
         <div>
 
         </div>

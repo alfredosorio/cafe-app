@@ -1,36 +1,24 @@
 import React from 'react'
 import moment from 'moment'
-class Order  extends React.Component{
-  state = {
-    product: null,
-    number: null,
-    timeDate: null
-  }
-  handleIncrement = () => {
-    this.setState((prevState) => ({
-      number: prevState.number + 1
-    }))
-  }
+import Product from './Product'
+import TotalPrice from './TotalPrice'
+export default function Order ({items}) {
+  // state = {
+  //       TotalPrice: 0
+  // }
 
-  handleDecrement = () => {
-    //  this.state.number -= 1
-    //  this.forceUpdate() // Get it to render again
-
-    this.setState((prevState) => ({
-      number: prevState.number - 1
-    }))
-  }
-
-  render() {
+ {
     return (
       <div>
-        <h2>Order</h2>
-        <p>HELLO</p>
-        <button onClick={ this.handleIncrement}> + </button>
-        <button onClick={ this.handleDecrement}> - </button>
-        <h3>{moment().format('MMMM Do YYYY, h:mm:ss a')}</h3>
+        <h2>Orders Made</h2>
+        {
+          items.map((item) => (
+            <h4>{ item.number } X { item.name }  costs $ <TotalPrice price= {item.price} number= {item.number}/> </h4>
+
+
+          ))
+        }
       </div>
     )
   }
 }
-export default Order
