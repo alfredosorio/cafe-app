@@ -35,7 +35,7 @@ class App extends Component {
         </div>
         <ProductMenu items={ data } />
         <div>
-          <Order />
+
         </div>
       </div>
 

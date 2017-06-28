@@ -1,11 +1,38 @@
 import React from 'react'
-export default function Product({
-    name,
-    price
-  }) {
-  return (
-    <div>
-      <h3>{name} | ${price}<button>+</button> <button>-</button></h3>
-    </div>
-  )
+class Product extends React.Component{
+
+    state = {
+      number: 0
+    }
+
+
+  handleIncrement = () => {
+    this.setState((prevState) => ({
+      number: prevState.number + 1
+    }))
+  }
+
+  handleDecrement = () => {
+    //  this.state.number -= 1
+    //  this.forceUpdate() // Get it to render again
+
+    this.setState((prevState) => ({
+      number: prevState.number - 1
+    }))
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>Product</h2>
+        <h3>
+        {this.props.name} ${this.props.price} |  {this.state.number}
+         <button onClick={ this.handleIncrement}> + </button>
+         <button onClick={ this.handleDecrement}> - </button>
+        </h3>
+      </div>
+    )
+  }
 }
+
+export default Product
