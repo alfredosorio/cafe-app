@@ -11,7 +11,7 @@ export default function ProductMenu({
               name={ item.name }
               price={ item.price }
           />
-        ))
+        ))  
       }
     </div>
   )

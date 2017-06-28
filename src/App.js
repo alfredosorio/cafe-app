@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import coffee from './coffee.gif'
 import './App.css';
 import ProductMenu from './component/ProductMenu'
+import Order from './component/Order'
+
 
 const data = [
   {
@@ -27,11 +30,15 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={coffee} className="App-logo" alt="logo" />
           <h2>Welcome to LOOONG and Strong</h2>
         </div>
         <ProductMenu items={ data } />
+        <div>
+          <Order />
+        </div>
       </div>
+
     );
   }
 }

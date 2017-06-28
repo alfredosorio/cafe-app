@@ -5,8 +5,7 @@ export default function Product({
   }) {
   return (
     <div>
-      <h3>{name}</h3>
-      <h3>${price}</h3>
+      <h3>{name} | ${price}<button>+</button> <button>-</button></h3>
     </div>
   )
 }
