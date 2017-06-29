@@ -24,8 +24,11 @@ handleDecrement = ({ event, number }) => {
         <h3>{ this.props.product.name }</h3> 
         Price: ${ this.props.product.price }
         <br />
-        Quantity: { this.state.number }
         <button onClick={ (event) => this.handleIncrement(event, this.state.number) }> + </button>
+        
+        {/* Quantity */}
+        {` ${this.state.number} `}
+
         <button onClick={ (event) => this.handleDecrement(event, this.state.number) }> - </button>
       </div>
     )
