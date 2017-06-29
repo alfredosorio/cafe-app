@@ -3,6 +3,8 @@ import coffee from './coffee.gif'
 import './App.css';
 import ProductMenu from './component/ProductMenu'
 import Order from './component/Order'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
 
 
 // const data = [
@@ -47,32 +49,52 @@ class App extends Component {
     const { products, error } = this.state
 
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={coffee} className="App-logo" alt="logo" />
-          <h2>Welcome to LOOONG and Strong</h2>
-        </div>
-
-        <div>
-        {
-          !!products ? (
-            <div>
-              {
-                products.map(product => (
-                <div key = { product._id }>
-                  { product.name }
-                  { product.price }
-                </div>
-                ))
-              }
+      <Router>
+        <main>
+          <div className="App">
+            <div className="App-header">
+              <img src={coffee} className="App-logo" alt="logo" />
+              <h2>Welcome to LOOONG and Strong</h2>
             </div>
-          ) : (
-            <h3>Loading products...</h3>
-          )
-        }
-        </div>
-      </div>
-
+              <nav>
+                <Link to={'/'} >Home</Link>
+                <Link to={'/products'} >products</Link>
+                <Link to={'/orders'} >Orders</Link>
+              </nav>
+            <div>
+          <Route exact path='/' render={
+            () => (
+              <h1>Welcome!!!</h1>
+            )
+          }
+          />
+          <Route path='/products' render={
+            () => (
+              <div>
+                {
+              !!products ? (
+                <div>
+                  {
+                    products.map(product => (
+                    <div key = { product._id }>
+                      { product.name }
+                      { product.price }
+                    </div>
+                    ))
+                  }
+                </div>
+              ) : (
+                <h3>Loading products...</h3>
+              )
+            }
+              </div>
+            )
+          } />
+            
+            </div>
+          </div>
+        </main>
+      </Router>
     );
   }
 
