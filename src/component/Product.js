@@ -1,34 +1,32 @@
-import React from 'react'
-class Product extends React.Component{
+import React from 'react';
 
-    state = {
-      number: 0
-    }
-
-
-  handleIncrement = () => {
-    this.setState((prevState) => ({
-      number: prevState.number + 1
-    }))
+class Product extends React.Component {
+  constructor(product) {
+    super(product)
+    this.state = { number: 0 }
   }
 
-  handleDecrement = () => {
-    //  this.state.number -= 1
-    //  this.forceUpdate() // Get it to render again
+handleIncrement = ({ event, number }) => {
+  this.setState((prevState) => {
+    prevState.number += 1
+  })
+}
 
-    this.setState((prevState) => ({
-      number: prevState.number - 1
-    }))
-  }
+handleDecrement = ({ event, number }) => {
+  this.setState((prevState) => {
+    prevState.number -= 1
+  })
+}
 
   render() {
     return (
       <div>
-        <h3>
-        {this.props.name} ${this.props.price} | Quantity: {this.state.number}
-         <button onClick={ this.handleIncrement}> + </button>
-         <button onClick={ this.handleDecrement}> - </button>
-        </h3>
+        <h3>{ this.props.product.name }</h3> 
+        Price: ${ this.props.product.price }
+        <br />
+        Quantity: { this.state.number }
+        <button onClick={ (event) => this.handleIncrement(event, this.state.number) }> + </button>
+        <button onClick={ (event) => this.handleDecrement(event, this.state.number) }> - </button>
       </div>
     )
   }
