@@ -21,15 +21,23 @@ handleDecrement = ({ event, number }) => {
   render() {
     return (
       <div>
-        <h3>{ this.props.product.name }</h3> 
-        Price: ${ this.props.product.price }
-        <br />
-        <button onClick={ (event) => this.handleIncrement(event, this.state.number) }> + </button>
+        <h3>
+          <div>
+            { this.props.product.name }
+          </div>
+          <div>
+            Price: ${ this.props.product.price }
+          </div>
+        </h3> 
         
-        {/* Quantity */}
-        {` ${this.state.number} `}
-
-        <button onClick={ (event) => this.handleDecrement(event, this.state.number) }> - </button>
+        <div>
+          <button onClick={ (event) => this.handleIncrement(event, this.state.number) }> + </button>
+          
+          {/* Quantity */}
+          {` ${this.state.number} `}
+  
+          <button onClick={ (event) => this.handleDecrement(event, this.state.number) }> - </button>
+        </div>
       </div>
     )
   }
